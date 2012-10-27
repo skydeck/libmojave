@@ -575,20 +575,6 @@ let create
                   h :: rem
    in
 
-   let rec fst_mem_filt s = function
-      [] ->
-         []
-    | (((v, _) as h) :: t) as l ->
-         if mem s v then
-            let rem = fst_mem_filt s t in
-               if rem == t then
-                  l
-               else
-                  h :: rem
-         else
-            fst_mem_filt s t
-   in
-
    let deletemax t =
       let k,d,t'=lift_right !t in
          k,d,ref t'
